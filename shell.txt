@@ -1,0 +1,4 @@
+1.
+
+2. for f in ./mig33/inner.folder/*txt; do mv -- "$f" "${f%.txt}.dat" done
+

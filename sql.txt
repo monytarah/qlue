@@ -1,0 +1,11 @@
+1. SELECT date, SUM(CASE WHEN score > 0 THEN 1 ELSE 0 END) AS num_pos_scores,
+SUM(CASE WHEN score < 0 THEN 1 ELSE 0 END) AS num_neg_scores
+FROM assessments
+WHERE date BETWEEN '2011-03-01 00:00:00' AND '2011-04-30 23:59:59'
+GROUP BY date;
+
+
+2. SELECT date FROM assessments
+WHERE date NOT IN (SELECT date FROM assessments WHERE score < 0) 
+AND
+date BETWEEN '2011-01-01 00:00:00' AND '2011-06-30 23:59:59';
